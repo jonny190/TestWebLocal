@@ -15,12 +15,22 @@
 
 A production-ready, full-stack boilerplate featuring the latest technologies for building modern web applications. Ready for deployment on [Coolify](https://coolify.io), [Vercel](https://vercel.com), and [Docker](https://docker.com).
 
-A production-ready, full-stack boilerplate featuring the latest technologies for building modern web applications. Ready for deployment on [Coolify](https://coolify.io), [Vercel](https://vercel.com), and [Docker](https://docker.com).
-
 ## 🛠️ Tech Stack
 
+| Category | Technology | Version |
+|----------|------------|---------|
+| **Framework** | Next.js | 14.2.3 |
+| **Language** | TypeScript | 5.4.5 |
+| **UI Library** | React | 18.3.1 |
+| **Styling** | Tailwind CSS | 3.4.3 |
+| **Icons** | Lucide React | Latest |
+| **Components** | shadcn/ui | Latest |
+| **Database** | PostgreSQL | 15 |
+| **ORM** | Prisma | 5.14.0 |
+| **Auth** | NextAuth.js | 4.24.7 |
+
 ### Core Framework
-- **Next.js 14** - React framework with App Router, Server Components, and edge runtime
+- **Next.js 14** - App Router, Server Components, Edge Runtime
 - **TypeScript** - Full type safety with strict mode
 - **React 18** - Latest React with concurrent features
 
@@ -39,6 +49,7 @@ A production-ready, full-stack boilerplate featuring the latest technologies for
 ### Deployment
 - **Docker** - Containerization for easy deployment
 - **Coolify Ready** - One-click deployment support
+- **Vercel Ready** - Optimized for Vercel deployment
 
 ### Monitoring & Analytics
 - **Vercel Analytics** - Real-time analytics
@@ -251,10 +262,68 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📊 Project Stats
 
-![Static Badge](https://img.shields.io/badge/Status-Production%20Ready-22c55e?style=for-the-badge)
-![Static Badge](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge)
-![Static Badge](https://img.shields.io/badge/Components-20%2B-3b82f6?style=for-the-badge)
-![Static Badge](https://img.shields.io/badge/Tests-Ready-8b5cf6?style=for-the-badge)
+| Metric | Status |
+|--------|--------|
+| **Status** | 🟢 Production Ready |
+| **Framework** | Next.js 14 |
+| **Language** | TypeScript |
+| **Components** | 20+ UI Components |
+| **Database** | PostgreSQL + Prisma |
+| **Auth** | NextAuth.js Ready |
+| **Docker** | ✅ Supported |
+| **Analytics** | ✅ Vercel Analytics |
+| **CI/CD** | ✅ GitHub Actions |
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your configuration
+
+# Run database migrations
+npx prisma db push
+
+# Start development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📚 Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [shadcn/ui Documentation](https://ui.shadcn.dev)
+- [Auth.js Documentation](https://authjs.dev)
+- [Docker Documentation](https://docs.docker.com)
+- [Coolify Documentation](https://coolify.io/docs)
+
+## 🤝 Contributing
+
+Please read our [Contributing Guidelines](.github/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.dev) for the amazing component library
+- [Next.js](https://nextjs.org) for the incredible framework
+- [Prisma](https://www.prisma.io) for the best ORM experience
+- [Coolify](https://coolify.io) for the amazing deployment platform
+- [Vercel](https://vercel.com) for the amazing developer experience
 
 ---
 
