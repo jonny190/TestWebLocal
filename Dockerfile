@@ -34,8 +34,9 @@ RUN apk add --no-cache curl
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy built assets
-COPY --from=builder /app/public ./public
+# Copy built assets (only if public folder exists)
+RUN mkdir -p /app/public
+COPY --from=builder /app/public ./public 2>/dev/null || true
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/node_modules ./node_modules
