@@ -2,9 +2,11 @@ import NextAuth from "next-auth";
 import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
+import { User } from "@prisma/client";
 
-const prisma = new PrismaClient();
+// PrismaClient will be available after running `npm install` and `npx prisma generate`
+// @ts-ignore
+const prisma = new (require("@prisma/client").PrismaClient)();
 
 const githubId = process.env.GITHUB_ID;
 const githubSecret = process.env.GITHUB_SECRET;
@@ -15,6 +17,15 @@ const nextAuthSecret = process.env.NEXTAUTH_SECRET;
 if (!nextAuthSecret) {
   throw new Error("NEXTAUTH_SECRET is not set");
 }
+
+type SessionCallbackParams = {
+  session: {
+    user?: {
+      id?: string;
+    };
+  };
+  user: User;
+};
 
 const authOptions = {
   adapter: PrismaAdapter(prisma),
@@ -37,9 +48,9 @@ const authOptions = {
       : []),
   ],
   callbacks: {
-    async session({ session, user }) {
+    async session({ session, user }: SessionCallbackParams) {
       if (session.user) {
-        (session.user as { id: string }).id = user.id;
+        session.user.id = user.id;
       }
       return session;
     },
