@@ -18,6 +18,7 @@ model User {
   
   accounts      Account[]
   sessions      Session[]
+  posts         Post[]
   
   @@map(name: "users")
 }
