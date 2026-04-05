@@ -2,7 +2,6 @@ import NextAuth from "next-auth";
 import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { User } from "@prisma/client";
 
 // PrismaClient will be available after running `npm install` and `npx prisma generate`
 // @ts-ignore
@@ -17,15 +16,6 @@ const nextAuthSecret = process.env.NEXTAUTH_SECRET;
 if (!nextAuthSecret) {
   throw new Error("NEXTAUTH_SECRET is not set");
 }
-
-type SessionCallbackParams = {
-  session: {
-    user?: {
-      id?: string;
-    };
-  };
-  user: User;
-};
 
 const authOptions = {
   adapter: PrismaAdapter(prisma),
@@ -48,9 +38,9 @@ const authOptions = {
       : []),
   ],
   callbacks: {
-    async session({ session, user }: SessionCallbackParams) {
+    async session({ session, user }: { session: any; user: any }) {
       if (session.user) {
-        session.user.id = user.id;
+        (session.user as { id?: string }).id = (user as { id: string }).id;
       }
       return session;
     },
